@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="46" tileheight="46">
+ <tileset firstgid="1" name="Tileset" tilewidth="46" tileheight="46">
+  <image source="Tileset.png" width="800" height="600"/>
+  <tile id="0">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="40" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC42YUW7EIAxEkTY5CZD7H7H7sZZe345pPxBsgo09Hg9N5xjjeY/9Huuznp91mr1+YP/g3ca8ME+dY7tHfms/39Nmwf+jeYdz6vnCGWv8jmkG/3zOHJZ87fE7Jvt1vFP25YMx02+HTcKqfKTaEOc9vnNLY2t/wtV8mBo72JMn3pvyd23tp3JNtdgazJk4PLJl3K/3uD7zjeHffF7vLth7z6X1Sz5TTsSn4mMsr3/49jPmxufdqD11vjlDji7YXOFsY8NYuOceOSfbcE2emf/kZIqH/q7xHVfC6ZZN4gLtrJPWhHre1SBx7nSe+ZHwZJ6Phvu04kv4GzOelfrF5zO+rh7s4U7jl85JHDdWqe7G/jTqLGuo77XC1Ln6XONw0qFU84Sj+7e7i3bjr/P5V5zmYleP0j/Wk33LfmaO9x+/u/OtT4mX5gjryXXFWfETq8RF1y7h2/VS0qLaU+e7pox3H2rQcY816nrCd5J5c6ueW6OwnKPHyDEmjTvdidYf9xLjod5NPU/1NZ/Mx5RPp42uQ8LP/VG9scc3Zum3zzNPUw1TjzOX7u+1pdFxy7wzTuleSxi6d2ofNYS9wvUO/lOPpN7u+OV+7vrL3zJVZ8a8GhySnhmH7o7ptN3xWY+JIzU66bFxSPce7YxxysV+qSPdt94T/Lg/XMc0Jx3sciD/rNG+657xHZPxOfVMyo37kl3NvCOIoevsGronHKPfd/xNdaePqmfFmL7vV8i3i8tYdHimuyJpoGvqb5DipjE56UKnQ+6r7t7gTNy62fqS4rFOpN+dlifNYnz+/wL/bi4MzaHUb11Nrdudrqf+Jt/MRda+43EXW6d75oXfufdSTORezSfdS/qc+G4sT71Vg/rCmNgjO2Bx0o6uf1MNkqYyV/PM3+ZV+6TLxqzrm46rSROdl/WZvHPNqT8TtvbB987V99PUea4nzy/b5JN6bf0mH3h/M17GkjiVejTlbpstn+bnkv8Us7V0jVwT2zo/14N4MSdixDiZu/vLvHB89pvw33rX4Uh/W+spn74nvc8cZ97Emvt+AAD2nl8AGQAA
+  </data>
+ </layer>
+ <layer name="Collideable" width="40" height="40" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2YUQqAIBBEt46g3v+sGbkpIcU2KvsxDwYUBB+j/ihCCLGw52yLsxv9VkM/DPph0A+Dfhj0w6AfBv0w6IdBPwyrX8oJJbHMUzMejdUvTnD42tOyVjvSHqPUPsNYtXtPy1rtr+fi4Xzb/k6ivDujWP3Uoe1Kx5782ver/c14O3/Pt4eH+xekdhYe8eDn+X+IEHJxADE2V4MAGQAA
+  </data>
+ </layer>
+</map>

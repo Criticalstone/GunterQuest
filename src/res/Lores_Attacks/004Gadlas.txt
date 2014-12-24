@@ -1,0 +1,54 @@
+N*. 004 
+GADLAS
+FLY
+
+TYPE: FAST
+
+HT 0,01 m
+WG 0,01 kg
+
+HP: 50 +3
+ATTACK: 50 +2
+DEFENCE: 30 +1
+SPECIAL: 30 +1
+SPEED: 50 +3
+
+ATTACKS:
+_____________________________________________________________
+
+BITCH PLEASE PP 5 
+
+DMG. 0
+ACC. 100%	
+
+IF GADLAS TAKES LETHAL DAMAGE HE REGAINS ALL HP HE LOST.
+_____________________________________________________________
+
+TINY CHANCE PP 10 
+
+DMG. 0
+ACC. 90%
+
+TINY CHANCES INCREASES GADLAS EVASION WITH 20%.
+_____________________________________________________________
+
+SWARM PP 20
+
+DMG. 50 (SPECIAL)
+ACC. 100%	
+
+SWARM DOES DAMAGE OVER 3 TURNS AND LOWERS THE TARGETS ACCURACY BY 10% PER TURN
+_____________________________________________________________
+
+BITE PP 30
+
+DMG. 80 (FYSICAL)
+ACC. 100%	
+
+BITE HEALS GADLAS 80% OF DAMAGE DONE.
+_____________________________________________________________
+
+LORE:
+
+It was born in a huge swarm but was exiled because it was to annoying.
+It loves speed and likes to race cars on the freeway or sit on their windscreens.

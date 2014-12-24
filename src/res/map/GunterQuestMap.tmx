@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="46" tileheight="46">
+ <tileset firstgid="1" name="Map" tilewidth="46" tileheight="46">
+  <tile id="0">
+   <image width="46" height="46" source="Fence_bottom_top.png"/>
+  </tile>
+  <tile id="1">
+   <image width="46" height="46" source="Fence_left_right.png"/>
+  </tile>
+  <tile id="2">
+   <image width="46" height="46" source="Grass.png"/>
+  </tile>
+  <tile id="3">
+   <image width="46" height="46" source="Grass_1.png"/>
+  </tile>
+  <tile id="4">
+   <image width="46" height="46" source="Grass_2.png"/>
+  </tile>
+  <tile id="5">
+   <image width="46" height="46" source="Grass_3.png"/>
+  </tile>
+  <tile id="6">
+   <image width="46" height="46" source="labyrinth_1.png"/>
+  </tile>
+  <tile id="7">
+   <image width="46" height="46" source="labyrinth_2.png"/>
+  </tile>
+  <tile id="8">
+   <image width="46" height="46" source="labyrinth_3.png"/>
+  </tile>
+  <tile id="9">
+   <image width="46" height="46" source="Tall_grass.png"/>
+  </tile>
+  <tile id="10">
+   <image width="46" height="46" source="Water_1.png"/>
+  </tile>
+  <tile id="11">
+   <image width="46" height="46" source="Water_2.png"/>
+  </tile>
+  <tile id="12">
+   <image width="46" height="46" source="Water_3.png"/>
+  </tile>
+  <tile id="13">
+   <image width="46" height="46" source="Water_4.png"/>
+  </tile>
+ </tileset>
+ <layer name="Background" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJyNmMuOgCAMRUlQNyL//7njwiZnjhdnFkTBWvq4fcBorY17nPeYGNezPp53zrnm9RNjgmZirWgn5qf2LfoBmvp+gu7C2om9hv43Pf+hHJRrtt/6nOA5RM/9KCPprRt1tKzWgzJTtqu9Zb20F3kNzK+w91j8xzl1op60m/GQ8DG0P3mtfGrf0K62hbFMOf2f7T+1J/nv99ju0Z/ngbUD32q9Y60/ax4dY9Me9U7s0C7UaT771v41du2dvh/6ZrlIs4Un/USMEWen5KDNaKsDz97eduS/B/il9+Lt3GQs1Lz23sSPfOmrrWWfreg86F/mQcYF45oYs6+MRWLBdk047lqnLozJJFfZlL4iH/qY3w8NyvefZ/FjvqSP+X4Fv9IHG/gWb8tNW3fRGzf0CXHmWkG57dsUi5SLehhT9Cv9T5wWb8atawtje29ZV/qCOErYtA9SLnXedA1L+briI+Vfy2LZEw4dY7Y1c0LqjVznh3gke9E/f71TV+tlHd2rOVeXz4k5xy99TEwaD/a/8eH83GEr5j/H8AA997Fv6D/XPMeB4968iT/mO2OQ9S351LxXNdVz5wLngPqWZHJuvsSXvmEd5nfHTsrjrnWpBiSZjEP3B85dxhtl9pr7Bfdaxox7UMdGzXftm7DjHOxc7f7LOdQ5ovorn1ncc0/ZnfjwvqlPSJj96oVIb5y5r2Z9c843ppNPLV+ynXsK/uN+j3WDtWWVx5KfEw4cq+5Xkk96e5+52aNS3tRb0p49zI0Hy7+SNdU39qnpbGrexvpXn8z9KLPtx7xQ+vts5LNsvRvb9l2qA87JxAS/p3xF+VwrLOcUT9f8pL97J+qQei73BTXSWZLnuIpl92wpv9C/lHHVJxpvjiXWX9vNdyzGt2VNdY92WeX1ZGPa4uvOi7Z0/rJN/O556ruSzq41xJjvWehn6p3ywldtdg0z5ohn06Y7pHTGJKaMMeLMuSTFxKrGuIaw/qYelfUj5TD7wjnRsvynBtquvuvy3WE6b6Yzc7pnMr8hujRP946+5/WZybYkZo0P3w36nsn3mul+1ne5liHRJH0pk/ORfZLo/P/q7jh9s92THylD6tN8prEcqe/0XZX3Sr4821tf99gJM8xPqQ8ZorONfTaq/34AhIsyDg==
+  </data>
+ </layer>
+ <layer name="Collideable" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztmEEKwCAMBFMv0f9/uIUaEBFK3FRy2IEQi4UOa7xUhBDioTx1Ha7i9DsN/TDoh0E/DPph0A+Dfhj0w6AfBv0wvH46VO299XUNt/P7/eHw9U3Pu9rXltucZzS7+eliP6Nf6yVDjwQ5X6NOPRKvn2Vk82d3VySX34rVTKLsnK9lptNzhvnL/H+IEPJyA7JXAgs=
+  </data>
+ </layer>
+</map>

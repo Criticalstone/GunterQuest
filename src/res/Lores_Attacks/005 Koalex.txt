@@ -1,0 +1,49 @@
+N*. 005 
+KOALEX
+BEAR
+
+TYPE: STRONG
+
+HT 0,6 m
+WG 8,0 kg
+
+HP: 100 +3
+ATTACK: 50 +3
+DEFENCE: 50 +2
+SPECIAL: 30 +1
+SPEED: 50 +1
+
+ATTACKS:
+_____________________________________________________________
+
+SLEEP PP 10
+DMG. 0
+ACC. 90%	
+
+SLEEP RESTORES ALL OF KOALEX HP AND LOWERS THE PP OF ALL OF HIS MOVES BY 4.
+_____________________________________________________________
+
+NOXIOUS BREATH PP 20 
+
+DMG. 80 (SPECIAL)
+ACC. 90%
+_____________________________________________________________
+
+SOUNDPROOF PP 10
+
+DMG. 0
+ACC. 70%	
+
+KOALEX CAN NOT TAKE SPECIAL DMG FOR 3 TURNS.
+_____________________________________________________________
+
+BEAR HUG PP 20
+
+DMG. 90 (FYSICAL)
+ACC. 80%	
+_____________________________________________________________
+
+LORE:
+
+IT IS VERY HARD TO SPOT WHEN IT CLINGS TO THE BRANCHES OF THE EUCALYPTUS TREE.
+WHEN ALONE IT SLEEPS ALOT AND WHEN IT SEES A POSSIBLE FRIEND IT IMMEDIATELY HUGS IT.

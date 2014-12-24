@@ -1,0 +1,54 @@
+N*. 002 
+OSQUATCH
+APE
+
+TYPE: STRONG
+
+HT 2,2 m
+WG 120,0 kg
+
+HP: 100 +3
+ATTACK: 50 +3
+DEFENCE: 30 +1
+SPECIAL: 50 +2
+SPEED: 50 +1
+
+ATTACKS:
+_____________________________________________________________
+
+RACE PP 10 
+
+DMG. 0
+ACC. 1	
+
+RACE INCREASES SPEED BY 2 STAGES.
+_____________________________________________________________
+
+SAS-SQUASH! PP 5 
+
+DMG. 100 (FYSICAL)
+ACC. 0.7
+
+
+_____________________________________________________________
+
+GANG HAO PP 5
+
+DMG. 120 (SPECIAL)
+ACC. 0.8	
+
+GANG HAO CHARGES FOR ONE TURN AND DEALS DAMAGE ON THE SECOND.
+_____________________________________________________________
+
+ICE AGE PP 15
+
+DMG. 80 (SPECIAL)
+ACC. 0.9	
+
+
+_____________________________________________________________
+
+LORE:
+
+THIS MYTHICAL APE WANDERS THE ALPS AND PLAYS WITH GOATS TO PASS ITS TIME.
+IF IT FINDS BROKEN DOWN SNOWMOBILES IT TAKES THEM BACK TO ITS CAVE TO REPAIR THEM.
