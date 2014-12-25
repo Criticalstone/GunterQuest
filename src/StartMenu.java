@@ -14,25 +14,48 @@ import org.newdawn.slick.tiled.TiledMap;
 
 public class StartMenu extends BasicGameState{
 	TiledMap map;
+	boolean enter = false;
+	Menu startMenu;
+	MenuAction[] menuActions;
 	@Override
-	public void init(GameContainer arg0, StateBasedGame arg1)
+	public void init(GameContainer gc, StateBasedGame game)
 			throws SlickException {
+		menuActions = new MenuAction[2];
+		menuActions[0] = new MenuAction("1. Start game") {
+			@Override
+			public void performAction() {
+				enter = true;
+			}
+		};
+		menuActions[1] = new MenuAction("2. Exit") {
+			@Override
+			public void performAction() {
+				System.exit(1);
+			}
+		};
+		startMenu = new Menu(0,0,gc.getWidth(), gc.getHeight(), menuActions);
 	}
 
-	public void render(GameContainer arg0, StateBasedGame arg1, Graphics g)
+	public void render(GameContainer gc, StateBasedGame game, Graphics g)
 			throws SlickException {
-		g.drawString("Press the keys 1 or 2 to navigate",100, 100);
-		g.drawString("1. Start game", 100, 120);
-		g.drawString("2. Exit", 100, 140);
+		startMenu.paint(g);
 	}
 
 	public void update(GameContainer c, StateBasedGame game, int delta)
 			throws SlickException {
-		Input input = c.getInput();
-		if(input.isKeyPressed(Input.KEY_1)){
-			game.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
-		}else if(input.isKeyPressed(Input.KEY_2)){
-			System.exit(1);
+		if(enter){
+			game.enterState(1);
+			enter = false;
+		}
+	}
+
+	public void keyPressed(int key, char c){
+		if(key == Input.KEY_UP){
+			startMenu.movePointer(-1);
+		}else if(key == Input.KEY_DOWN){
+			startMenu.movePointer(1);
+		}else if(key == Input.KEY_ENTER){
+			startMenu.performAction();
 		}
 	}
 
