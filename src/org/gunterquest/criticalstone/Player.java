@@ -4,6 +4,9 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
 
 
 public class Player {
@@ -25,8 +28,16 @@ public class Player {
 		}
 	}
 
+	public ArrayList<Mutant> getMutants(){
+		return mutants;
+	}
+
 	public Mutant getMutant(int index){
 		return mutants.get(index);
+	}
+
+	public void changeMutantPlace(int indexMutantOne, int indexMutantTwo){
+		Collections.swap(mutants, indexMutantOne, indexMutantTwo);
 	}
 
 	public Image getImage(){

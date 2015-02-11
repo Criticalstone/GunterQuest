@@ -34,7 +34,7 @@ _____________________________________________________________
 
 WORD OF TIESTO PP 20
 
-DMG. 0-150 (SPECIAL)
+DMG. 150 (SPECIAL)
 ACC. 0.9
 
 WORD OF TIESTO DOES A RANDOM AMOUNT OF DAMAGE BETWEEN 0 AND 150

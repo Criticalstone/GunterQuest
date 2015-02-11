@@ -38,7 +38,7 @@ public class Fight extends BasicGameState {
 	public void update(GameContainer gc, StateBasedGame game, int delta)
 			throws SlickException {
 		if (exit){
-			exit = !exit;
+			exit = false;
 			game.enterState(1);
 		}
 		

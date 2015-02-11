@@ -1,5 +1,7 @@
 package org.gunterquest.criticalstone;
 
+import org.gunterquest.criticalstone.window.Menu;
+import org.gunterquest.criticalstone.window.MenuItem;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -9,36 +11,37 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
+import java.util.ArrayList;
+
 
 public class StartMenu extends BasicGameState{
 	TiledMap map;
 	boolean enter = false;
 	Menu startMenu;
-	MenuItem[] menuActions;
+	ArrayList<MenuItem> menuActions;
 	@Override
 	public void init(GameContainer gc, StateBasedGame game)
 			throws SlickException {
-		menuActions = new MenuItem[2];
-		menuActions[0] = new MenuItem("1. Start game") {
+		menuActions = new ArrayList<MenuItem>(1);
+		menuActions.add(new MenuItem("1. Start game") {
 			@Override
 			public void performAction() {
 				enter = true;
 			}
-		};
-		menuActions[1] = new MenuItem("2. Exit") {
+		});
+		menuActions.add(new MenuItem("2. Exit") {
 			@Override
 			public void performAction() {
 				System.exit(1);
 			}
-		};
-		startMenu = new Menu(50, 50, Color.yellow, Color.blue, menuActions);
+		});
+		startMenu = new Menu(50, 50, 20, Color.yellow, Color.blue, menuActions);
 		startMenu.setVisible(true);
-		System.out.println(startMenu.getItem(0).getName());
 	}
 
 	public void render(GameContainer gc, StateBasedGame game, Graphics g)
 			throws SlickException {
-		startMenu.paint(g);
+		startMenu.render(g);
 	}
 
 	public void update(GameContainer c, StateBasedGame game, int delta)

@@ -11,7 +11,7 @@ public class Mutant {
 	private int[] attr;
 	private int[] attrMod;
 	
-	private static int MAX_HEALTH;
+	private int MAX_HEALTH;
 	private int level;
 	private int exp;
 	private String name;
@@ -41,6 +41,7 @@ public class Mutant {
 		}	
 		
 		MAX_HEALTH = attr[0];
+		setAttr(0,getMaxHealth());
 		
 		//create the abilities
 		for(int i=0; i < 4; i++){
@@ -94,6 +95,10 @@ public class Mutant {
 	
 	public int getLevel(){
 		return this.level;
+	}
+
+	public void setAttr(int index, int value){
+		attr[index] = value;
 	}
 
 	public String getName(){
