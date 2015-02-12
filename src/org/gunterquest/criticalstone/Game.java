@@ -36,6 +36,7 @@ public class Game extends BasicGameState{
 	Menu ingameMenu;
 	MutantMenu mutantMenu;
 	Menu activeMenu;
+	private boolean state2;
 
 	public enum Direction{
 		UP(0,-1),
@@ -71,23 +72,23 @@ public class Game extends BasicGameState{
 		dir = Direction.NONE;
 
 		File f = new File("save.txt");
-		if(f.exists())
+		if (f.exists())
 			loadGame();
-		
-		
-		for(int i = 5; i < map.getWidth(); i++){
-			for(int j = 5; j < map.getHeight(); j++){
+
+
+		for (int i = 5; i < map.getWidth(); i++) {
+			for (int j = 5; j < map.getHeight(); j++) {
 				int tileID = map.getTileId(i, j, layerName);
 				blocked[i][j] = map.getTileProperty(tileID, "blocked", "false").equals("true");
 			}
 		}
-		
+
 		player = new Player();
 		player.addMutant(new Mutant(Paths.get("res", "Lores_Attacks", "002Osquatch.txt")));
 		player.addMutant(new Mutant(Paths.get("res", "Lores_Attacks", "003Godmar.txt")));
 		player.addMutant(new Mutant(Paths.get("res", "Lores_Attacks", "004Gadlas.txt")));
 
-		messageBar = new MessageBar(10, gc.getHeight()-110, gc.getWidth()-20, 100);
+		messageBar = new MessageBar(10, gc.getHeight() - 110, gc.getWidth() - 20, 100);
 
 
 		/****************Ingame menu************************/
@@ -133,21 +134,18 @@ public class Game extends BasicGameState{
 				ingameMenu.movePointer(-5);
 			}
 		});
-		ingameMenu = new Menu(gc.getWidth()-110, 10, 20, Color.white, Color.black, menuItems);
+		ingameMenu = new Menu(gc.getWidth() - 110, 10, 20, Color.white, Color.black, menuItems);
 
 
 		/*************Pokemon menu*************************/
 		mutantItems = new ArrayList<MenuItem>(1);
-		mutantMenu = new MutantMenu(10,10, 50, Color.white, Color.black, mutantItems);
+		mutantMenu = new MutantMenu(10, 10, 50, Color.white, Color.black, mutantItems);
 		mutantMenu.setWidth(300);
 		mutantMenu.setPrevious(ingameMenu);
 
 		player.changeMutantPlace(1, 2);
 		updateMutantMenu();
-
 	}
-
-
 
 	private void updateMutantMenu() {
 		mutantMenu.clearMenu();
@@ -175,10 +173,8 @@ public class Game extends BasicGameState{
 			y = getNextY();
 			moved = true;
 		}
-		if(x==8 && y==21){
+		if(state2)
 			game.enterState(2);
-			x = 6;
-		}
 		if(exit){
 			game.enterState(0);
 		}
@@ -230,6 +226,8 @@ public class Game extends BasicGameState{
 				ingameMenu.setActive(true);
 			}else if(key == Input.KEY_ESCAPE){
 				exit = true;
+			}else if(key == Input.KEY_2){
+				state2 = true;
 			}
 		}
 		moved = false;
