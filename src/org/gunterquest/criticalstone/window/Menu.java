@@ -12,7 +12,7 @@ import java.util.List;
  * Created by Criticalstone on 23-Dec-14.
  */
 public class Menu extends Window{
-    private int itemGap;
+    private int itemVGap, itemHGap, columns, rows;
     private int pointer;
     private Menu previous;
     private List<MenuItem> items;
@@ -20,10 +20,20 @@ public class Menu extends Window{
     public Menu(int x, int y, int itemGap, Color background, Color foreground, ArrayList<MenuItem> items){
         super(x, y, background, foreground);
         this.items = items;
-        setItemGap(itemGap);
+        this.columns = 1;
+        this.rows = items.size()/columns;
+        setItemGap(itemGap, 0);
 
         setWidth(getLongestItemName().length() * 14);
         setHeight(items.size() * itemGap + 10);
+    }
+
+    public Menu(int x, int y, int itemVGap, int itemHGap, int columns, Color background, Color foreground, ArrayList<MenuItem> items){
+        super(x, y, background, foreground);
+        this.items = items;
+        this.columns = columns;
+        this.rows = items.size()/columns;
+        setItemGap(itemVGap, itemHGap);
     }
 
     public void addItem(MenuItem item){
@@ -48,8 +58,9 @@ public class Menu extends Window{
         items.get(pointer).performAction();
     }
 
-    public void setItemGap(int itemGap){
-        this.itemGap = itemGap;
+    public void setItemGap(int itemVGap, int itemHGap){
+        this.itemVGap = itemVGap;
+        this.itemHGap = itemHGap;
     }
 
     public MenuItem getItem(int index){
@@ -70,13 +81,18 @@ public class Menu extends Window{
     public void render(Graphics g) {
         if (isVisible) {
             super.render(g);
-            setHeight(items.size() * itemGap + 10);
-            for (int i = 0; i < items.size(); i++) {
-                if (items.get(i) != null)
-                    items.get(i).paint(x, y + itemGap * i, g);
+            setHeight(items.size() * itemVGap + 10);
+            setWidth(columns * getLongestItemName().length()*10 + columns * itemHGap + 10);
+            int nextItem = 0;
+            for(int i = 0; i < columns; i++) {
+                for (int j = 0; j < rows; j++) {
+                    if (items.get(nextItem) != null)
+                        items.get(nextItem).paint(x + i * getLongestItemName().length() * 10 + itemHGap * i, y + j * itemVGap, g);
+                    nextItem++;
+                }
             }
 
-            float[] points = new float[]{x + 10, y + pointer * itemGap + 13, x + 15, y + pointer * itemGap + 18, x + 10, y + pointer * itemGap + 23};
+            float[] points = new float[]{x + 10, y + pointer * itemVGap + 13, x + 15, y + pointer * itemVGap + 18, x + 10, y + pointer * itemVGap + 23};
             Shape pointerShape = new Polygon(points);
 
             g.fill(pointerShape);
