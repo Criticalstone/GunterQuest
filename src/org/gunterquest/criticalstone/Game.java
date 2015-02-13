@@ -143,7 +143,6 @@ public class Game extends BasicGameState{
 		mutantMenu.setWidth(300);
 		mutantMenu.setPrevious(ingameMenu);
 
-		player.changeMutantPlace(1, 2);
 		updateMutantMenu();
 	}
 

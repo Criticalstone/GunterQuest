@@ -1,59 +1,49 @@
 package org.gunterquest.criticalstone;
 
+import org.gunterquest.criticalstone.window.Menu;
+import org.gunterquest.criticalstone.window.MenuItem;
 import org.newdawn.slick.Color;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.Input;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.util.ArrayList;
 
+/**
+ * Created by Criticalstone on 13-Feb-15.
+ */
+public class Fight {
 
-public class Fight extends BasicGameState {
-	boolean exit = false;
-	Image battleScene;
-	String[] messages;
-	
-	@Override
-	public void init(GameContainer gc, StateBasedGame game)
-			throws SlickException {
-		battleScene = new Image("res/Fightscen/fightscene.png");
-	}
+    private Mutant firstMutant, secondMutant;
+    private boolean turn;                       //true = players turn, false = computers turn
+    private ArrayList menuItems;
+    private Menu fightMenu;
+    private StateBasedGame game;
 
-	@Override
-	public void render(GameContainer gc, StateBasedGame game, Graphics g)
-			throws SlickException {
-		battleScene.draw();
-		g.setColor(new Color(0,0,0));
+    public Fight(Mutant firstMutant, Mutant secondMutant, StateBasedGame game){
+        this.firstMutant = firstMutant;
+        this.secondMutant = secondMutant;
+        this.game = game;
+    }
 
-		g.drawString("Fight",gc.getWidth()-220, gc.getHeight()-70);
-		g.drawString("Mutants",gc.getWidth()-220, gc.getHeight()-30);
-		g.drawString("Bag",gc.getWidth()-90, gc.getHeight()-70);
-		g.drawString("Flee",gc.getWidth()-90, gc.getHeight()-30);
-	}
+    public void initMenu(){
+        menuItems.add(new MenuItem("EXIT") {
+            @Override
+            public void performAction() {
+                fightMenu.setVisible(false);
+                fightMenu.movePointer(-5);
+            }
+        });
+        fightMenu = new Menu(game.getContainer().getWidth() - 220, game.getContainer().getHeight() - 100, 20, Color.white, Color.black, menuItems);
+    }
 
-	@Override
-	public void update(GameContainer gc, StateBasedGame game, int delta)
-			throws SlickException {
-		if (exit){
-			exit = false;
-			game.enterState(1);
-		}
-		
-	}
-	
-	
-	public void keyPressed(int key, char c){
-		if(key == Input.KEY_ESCAPE){
-			exit = true;
-		}
-	}
+    public Mutant getSecondMutant() {
+        return secondMutant;
+    }
 
-	@Override
-	public int getID() {
-		return 2;
-	}
+    public Mutant getFirstMutant() {
+        return firstMutant;
+    }
 
+    public boolean isTurn() {
+        return turn;
+    }
 }
