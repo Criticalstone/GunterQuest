@@ -135,7 +135,7 @@ public class Game extends BasicGameState{
 					ingameMenu.movePointer(Utility.Direction.UP);
 			}
 		});
-		ingameMenu = new Menu(gc.getWidth() - 110, 10, 20, Color.white, Color.black, menuItems);
+		ingameMenu = new Menu(gc.getWidth() - 330, 10, 20, 20, 2, Color.white, Color.black, menuItems);
 
 
 		/*************Pokemon menu*************************/

@@ -55,7 +55,7 @@ public class Menu extends Window{
         pointerY += dir.getDy();
         pointerX += dir.getDx();
         pointerY = pointerY < 0 ? 0 : pointerY > items.size()-1 ? items.size()-1 : pointerY;
-        pointerX = pointerX < 0 ? 0 : pointerX > columns ? columns : pointerX;
+        pointerX = pointerX < 0 ? 0 : pointerX > columns-1 ? columns-1 : pointerX;
     }
 
     public void performAction(){
@@ -96,7 +96,7 @@ public class Menu extends Window{
                 }
             }
 
-            int pointerPaintX = x + pointerX * getLongestItemName().length() + itemHGap * pointerX + 10;
+            int pointerPaintX = x + pointerX * getLongestItemName().length() * 10 + itemHGap * pointerX + 10;
             int pointerPaintY = y + pointerY * itemVGap + 13;
             float[] points = new float[]{pointerPaintX, pointerPaintY, pointerPaintX + 5, pointerPaintY + 5, pointerPaintX, pointerPaintY + 10};
             Shape pointerShape = new Polygon(points);
