@@ -1,5 +1,7 @@
 package org.gunterquest.criticalstone.window;
 
+import org.gunterquest.criticalstone.Game;
+import org.gunterquest.criticalstone.Utility;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Polygon;
@@ -13,7 +15,7 @@ import java.util.List;
  */
 public class Menu extends Window{
     private int itemVGap, itemHGap, columns, rows;
-    private int pointer;
+    private int pointerX, pointerY;
     private Menu previous;
     private List<MenuItem> items;
 
@@ -49,13 +51,15 @@ public class Menu extends Window{
         items.clear();
     }
 
-    public void movePointer(int dir){
-        pointer += dir;
-        pointer = pointer < 0 ? 0 : pointer > items.size()-1 ? items.size()-1 : pointer;
+    public void movePointer(Utility.Direction dir){
+        pointerY += dir.getDy();
+        pointerX += dir.getDx();
+        pointerY = pointerY < 0 ? 0 : pointerY > items.size()-1 ? items.size()-1 : pointerY;
+        pointerX = pointerX < 0 ? 0 : pointerX > columns ? columns : pointerX;
     }
 
     public void performAction(){
-        items.get(pointer).performAction();
+        items.get(pointerX).performAction();
     }
 
     public void setItemGap(int itemVGap, int itemHGap){
@@ -92,7 +96,9 @@ public class Menu extends Window{
                 }
             }
 
-            float[] points = new float[]{x + 10, y + pointer * itemVGap + 13, x + 15, y + pointer * itemVGap + 18, x + 10, y + pointer * itemVGap + 23};
+            int pointerPaintX = x + pointerX * getLongestItemName().length() + itemHGap * pointerX + 10;
+            int pointerPaintY = y + pointerY * itemVGap + 13;
+            float[] points = new float[]{pointerPaintX, pointerPaintY, pointerPaintX + 5, pointerPaintY + 5, pointerPaintX, pointerPaintY + 10};
             Shape pointerShape = new Polygon(points);
 
             g.fill(pointerShape);

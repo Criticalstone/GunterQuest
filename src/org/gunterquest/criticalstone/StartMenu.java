@@ -54,9 +54,9 @@ public class StartMenu extends BasicGameState{
 
 	public void keyPressed(int key, char c){
 		if(key == Input.KEY_UP){
-			startMenu.movePointer(-1);
+			startMenu.movePointer(Utility.Direction.UP);
 		}else if(key == Input.KEY_DOWN){
-			startMenu.movePointer(1);
+			startMenu.movePointer(Utility.Direction.DOWN);
 		}else if(key == Input.KEY_ENTER){
 			startMenu.performAction();
 		}

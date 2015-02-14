@@ -131,7 +131,8 @@ public class Game extends BasicGameState{
 			@Override
 			public void performAction() {
 				ingameMenu.setVisible(false);
-				ingameMenu.movePointer(-5);
+				for(int i = 0; i < 5; i++)
+					ingameMenu.movePointer(Utility.Direction.UP);
 			}
 		});
 		ingameMenu = new Menu(gc.getWidth() - 110, 10, 20, Color.white, Color.black, menuItems);
@@ -200,9 +201,13 @@ public class Game extends BasicGameState{
 			}
 		}else if(ingameMenu.getVisible() || mutantMenu.getVisible()){
 			if(key == Input.KEY_UP) {
-				activeMenu.movePointer(-1);
+				activeMenu.movePointer(Utility.Direction.UP);
 			}else if(key == Input.KEY_DOWN){
-				activeMenu.movePointer(1);
+				activeMenu.movePointer(Utility.Direction.DOWN);
+			}else if(key == Input.KEY_LEFT){
+				activeMenu.movePointer(Utility.Direction.LEFT);
+			}else if(key == Input.KEY_RIGHT){
+				activeMenu.movePointer(Utility.Direction.RIGHT);
 			}else if(key == Input.KEY_ENTER){
 				activeMenu.performAction();
 			}else if(key == Input.KEY_ESCAPE){

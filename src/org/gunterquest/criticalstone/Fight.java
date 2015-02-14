@@ -29,7 +29,8 @@ public class Fight {
             @Override
             public void performAction() {
                 fightMenu.setVisible(false);
-                fightMenu.movePointer(-5);
+                for(int i = 0; i < 5; i++)
+                    fightMenu.movePointer(Utility.Direction.UP);
             }
         });
         fightMenu = new Menu(game.getContainer().getWidth() - 220, game.getContainer().getHeight() - 100, 20, Color.white, Color.black, menuItems);
