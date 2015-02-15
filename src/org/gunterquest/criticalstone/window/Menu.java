@@ -54,12 +54,12 @@ public class Menu extends Window{
     public void movePointer(Utility.Direction dir){
         pointerY += dir.getDy();
         pointerX += dir.getDx();
-        pointerY = pointerY < 0 ? 0 : pointerY > items.size()-1 ? items.size()-1 : pointerY;
+        pointerY = pointerY < 0 ? 0 : pointerY > (items.size()-1)/columns ? (items.size()-1)/columns : pointerY;
         pointerX = pointerX < 0 ? 0 : pointerX > columns-1 ? columns-1 : pointerX;
     }
 
     public void performAction(){
-        items.get(pointerX).performAction();
+        items.get(pointerX*rows+pointerY).performAction();
     }
 
     public void setItemGap(int itemVGap, int itemHGap){
@@ -85,7 +85,7 @@ public class Menu extends Window{
     public void render(Graphics g) {
         if (isVisible) {
             super.render(g);
-            setHeight(items.size() * itemVGap + 10);
+            setHeight(items.size() * itemVGap / columns + 10);
             setWidth(columns * getLongestItemName().length()*10 + columns * itemHGap + 10);
             int nextItem = 0;
             for(int i = 0; i < columns; i++) {
