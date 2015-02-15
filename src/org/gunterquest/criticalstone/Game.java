@@ -90,7 +90,7 @@ public class Game extends BasicGameState{
 
 		messageBar = new MessageBar(10, gc.getHeight() - 110, gc.getWidth() - 20, 100);
 
-		initIngameMenu();
+		initIngameMenu(gc);
 		initPokemonMenu();
 
 	}
@@ -222,7 +222,7 @@ public class Game extends BasicGameState{
 		updateMutantMenu();
 	}
 
-	public void initIngameMenu(){
+	public void initIngameMenu(GameContainer gc){
 		menuItems = new ArrayList<MenuItem>(1);
 		menuItems.add(new MenuItem("POKèMON") {
 			@Override
@@ -258,7 +258,7 @@ public class Game extends BasicGameState{
 				messageBar.setMessage("Welcome to the settings menu! UNDER CONSTRUCTION");
 			}
 		});
-		menuItems.add(new MenuItem("EXIT") {
+		menuItems.add(new MenuItem("TEST") {
 			@Override
 			public void performAction() {
 				ingameMenu.setVisible(false);
@@ -266,7 +266,7 @@ public class Game extends BasicGameState{
 					ingameMenu.movePointer(Utility.Direction.UP);
 			}
 		});
-		ingameMenu = new Menu(gc.getWidth() - 330, 10, 20, 20, 2, Color.white, Color.black, menuItems);
+		ingameMenu = new Menu(gc.getWidth() - 110, 10, 20, Color.white, Color.black, menuItems);
 
 	}
 
