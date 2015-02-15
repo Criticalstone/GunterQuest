@@ -90,62 +90,11 @@ public class Game extends BasicGameState{
 
 		messageBar = new MessageBar(10, gc.getHeight() - 110, gc.getWidth() - 20, 100);
 
+		initIngameMenu();
+		initPokemonMenu();
 
-		/****************Ingame menu************************/
-		menuItems = new ArrayList<MenuItem>(1);
-		menuItems.add(new MenuItem("POKèMON") {
-			@Override
-			public void performAction() {
-				updateMutantMenu();
-				mutantMenu.setVisible(true);
-				mutantMenu.setActive(true);
-				ingameMenu.setActive(false);
-			}
-		});
-		menuItems.add(new MenuItem("ITEM") {
-			@Override
-			public void performAction() {
-				messageBar.setMessage("Welcome to the items menu! UNDER CONSTRUCTION");
-			}
-		});
-		menuItems.add(new MenuItem("GüNTER") {
-			@Override
-			public void performAction() {
-				messageBar.setMessage("Welcome to the GüNTER menu! UNDER CONSTRUCTION");
-			}
-		});
-		menuItems.add(new MenuItem("SAVE") {
-			@Override
-			public void performAction() {
-				messageBar.setMessage("The game has been saved! UNDER CONSTRUCTION");
-				saveGame();
-			}
-		});
-		menuItems.add(new MenuItem("OPTION") {
-			@Override
-			public void performAction() {
-				messageBar.setMessage("Welcome to the settings menu! UNDER CONSTRUCTION");
-			}
-		});
-		menuItems.add(new MenuItem("EXIT") {
-			@Override
-			public void performAction() {
-				ingameMenu.setVisible(false);
-				for(int i = 0; i < 5; i++)
-					ingameMenu.movePointer(Utility.Direction.UP);
-			}
-		});
-		ingameMenu = new Menu(gc.getWidth() - 330, 10, 20, 20, 2, Color.white, Color.black, menuItems);
-
-
-		/*************Pokemon menu*************************/
-		mutantItems = new ArrayList<MenuItem>(1);
-		mutantMenu = new MutantMenu(10, 10, 50, Color.white, Color.black, mutantItems);
-		mutantMenu.setWidth(300);
-		mutantMenu.setPrevious(ingameMenu);
-
-		updateMutantMenu();
 	}
+
 
 	private void updateMutantMenu() {
 		mutantMenu.clearMenu();
@@ -263,8 +212,65 @@ public class Game extends BasicGameState{
 		x = Integer.parseInt(fileLines.get(0).split(":")[1].trim());
 		y = Integer.parseInt(fileLines.get(0).split(":")[2].trim());
 	}
-	
-	
+
+	public void initPokemonMenu(){
+		mutantItems = new ArrayList<MenuItem>(1);
+		mutantMenu = new MutantMenu(10, 10, 50, Color.white, Color.black, mutantItems);
+		mutantMenu.setWidth(300);
+		mutantMenu.setPrevious(ingameMenu);
+
+		updateMutantMenu();
+	}
+
+	public void initIngameMenu(){
+		menuItems = new ArrayList<MenuItem>(1);
+		menuItems.add(new MenuItem("POKèMON") {
+			@Override
+			public void performAction() {
+				updateMutantMenu();
+				mutantMenu.setVisible(true);
+				mutantMenu.setActive(true);
+				ingameMenu.setActive(false);
+			}
+		});
+		menuItems.add(new MenuItem("ITEM") {
+			@Override
+			public void performAction() {
+				messageBar.setMessage("Welcome to the items menu! UNDER CONSTRUCTION");
+			}
+		});
+		menuItems.add(new MenuItem("GüNTER") {
+			@Override
+			public void performAction() {
+				messageBar.setMessage("Welcome to the GüNTER menu! UNDER CONSTRUCTION");
+			}
+		});
+		menuItems.add(new MenuItem("SAVE") {
+			@Override
+			public void performAction() {
+				messageBar.setMessage("The game has been saved! UNDER CONSTRUCTION");
+				saveGame();
+			}
+		});
+		menuItems.add(new MenuItem("OPTION") {
+			@Override
+			public void performAction() {
+				messageBar.setMessage("Welcome to the settings menu! UNDER CONSTRUCTION");
+			}
+		});
+		menuItems.add(new MenuItem("EXIT") {
+			@Override
+			public void performAction() {
+				ingameMenu.setVisible(false);
+				for(int i = 0; i < 5; i++)
+					ingameMenu.movePointer(Utility.Direction.UP);
+			}
+		});
+		ingameMenu = new Menu(gc.getWidth() - 330, 10, 20, 20, 2, Color.white, Color.black, menuItems);
+
+	}
+
+
 	@Override
 	public int getID() {
 		return 1;
