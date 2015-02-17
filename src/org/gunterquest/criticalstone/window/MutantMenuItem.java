@@ -3,7 +3,6 @@ package org.gunterquest.criticalstone.window;
 import org.gunterquest.criticalstone.Mutant;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
-
 /**
  * Created by Criticalstone on 06-Jan-15.
  */

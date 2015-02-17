@@ -52,8 +52,8 @@ public class Menu extends Window{
     }
 
     public void movePointer(Utility.Direction dir){
-        pointerY += dir.getDy();
-        pointerX += dir.getDx();
+        pointerY += dir.getDeltaY();
+        pointerX += dir.getDeltaX();
         pointerY = pointerY < 0 ? 0 : pointerY > (items.size()-1)/columns ? (items.size()-1)/columns : pointerY;
         pointerX = pointerX < 0 ? 0 : pointerX > columns-1 ? columns-1 : pointerX;
     }
@@ -86,12 +86,12 @@ public class Menu extends Window{
         if (isVisible) {
             super.render(g);
             setHeight(items.size() * itemVGap / columns + 10);
-            setWidth(columns * getLongestItemName().length()*10 + columns * itemHGap + 10);
+            setWidth(columns * getLongestItemName().length()*13 + columns * itemHGap + 10);
             int nextItem = 0;
             for(int i = 0; i < columns; i++) {
                 for (int j = 0; j < rows; j++) {
                     if (items.get(nextItem) != null)
-                        items.get(nextItem).paint(x + i * getLongestItemName().length() * 10 + itemHGap * i, y + j * itemVGap, g);
+                        items.get(nextItem).paint(x + i * getLongestItemName().length() * 13 + itemHGap * i, y + j * itemVGap, g);
                     nextItem++;
                 }
             }

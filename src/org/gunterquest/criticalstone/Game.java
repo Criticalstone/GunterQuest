@@ -24,9 +24,9 @@ public class Game extends BasicGameState{
 	Player player;
 	int x,y;
 	private boolean blocked[][];
-	private Direction dir;
 	private boolean moved;
 	private boolean exit = false;
+    private Utility.Direction dir = Utility.Direction.NONE;
 
 	public MessageBar messageBar;
 
@@ -37,28 +37,6 @@ public class Game extends BasicGameState{
 	MutantMenu mutantMenu;
 	Menu activeMenu;
 	private boolean state2;
-
-	public enum Direction{
-		UP(0,-1),
-		DOWN(0,1),
-		LEFT(-1,0),
-		RIGHT(1,0),
-		NONE(0,0);
-		
-		private int deltaX, deltaY;
-		private Direction(int deltaX, int deltaY){
-			this.deltaX = deltaX;
-			this.deltaY = deltaY;
-		}
-		
-		private int getDeltaX(){
-			return this.deltaX;
-		}
-		
-		private int getDeltaY(){
-			return this.deltaY;
-		}
-	}
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame game)
@@ -69,7 +47,7 @@ public class Game extends BasicGameState{
 		map = new TiledMap("res/map/testmap.tmx");
 		blocked = new boolean[map.getWidth()][map.getHeight()];
 		int layerName = map.getLayerIndex("Collideable");
-		dir = Direction.NONE;
+		dir = Utility.Direction.NONE;
 
 		File f = new File("save.txt");
 		if (f.exists())
@@ -91,7 +69,7 @@ public class Game extends BasicGameState{
 		messageBar = new MessageBar(10, gc.getHeight() - 110, gc.getWidth() - 20, 100);
 
 		initIngameMenu(gc);
-		initPokemonMenu();
+		initMutantMenu();
 
 	}
 
@@ -167,13 +145,13 @@ public class Game extends BasicGameState{
 			}
 		}else{
 			if(key == Input.KEY_UP){
-				dir = Direction.UP;
+				dir = Utility.Direction.UP;
 			}else if(key == Input.KEY_DOWN){
-				dir = Direction.DOWN;
+				dir = Utility.Direction.DOWN;
 			}else if(key == Input.KEY_LEFT){
-				dir = Direction.LEFT;
+				dir = Utility.Direction.LEFT;
 			}else if(key == Input.KEY_RIGHT){
-				dir = Direction.RIGHT;
+				dir = Utility.Direction.RIGHT;
 			}else if(key == Input.KEY_I){
 				ingameMenu.setVisible(true);
 				ingameMenu.setActive(true);
@@ -190,7 +168,7 @@ public class Game extends BasicGameState{
 	
 	public void keyReleased(int key, char c){
 		if(key == Input.KEY_UP || key == Input.KEY_DOWN || key == Input.KEY_LEFT || key == Input.KEY_RIGHT)  {
-			dir = Direction.NONE;
+			dir = Utility.Direction.NONE;
 		}
 	}
 
@@ -213,8 +191,8 @@ public class Game extends BasicGameState{
 		y = Integer.parseInt(fileLines.get(0).split(":")[2].trim());
 	}
 
-	public void initPokemonMenu(){
-		mutantItems = new ArrayList<MenuItem>(1);
+	public void initMutantMenu(){
+		mutantItems = new ArrayList<>(1);
 		mutantMenu = new MutantMenu(10, 10, 50, Color.white, Color.black, mutantItems);
 		mutantMenu.setWidth(300);
 		mutantMenu.setPrevious(ingameMenu);
@@ -223,7 +201,7 @@ public class Game extends BasicGameState{
 	}
 
 	public void initIngameMenu(GameContainer gc){
-		menuItems = new ArrayList<MenuItem>(1);
+		menuItems = new ArrayList<>(1);
 		menuItems.add(new MenuItem("POKèMON") {
 			@Override
 			public void performAction() {
@@ -258,7 +236,7 @@ public class Game extends BasicGameState{
 				messageBar.setMessage("Welcome to the settings menu! UNDER CONSTRUCTION");
 			}
 		});
-		menuItems.add(new MenuItem("TEST") {
+		menuItems.add(new MenuItem("EXIT") {
 			@Override
 			public void performAction() {
 				ingameMenu.setVisible(false);

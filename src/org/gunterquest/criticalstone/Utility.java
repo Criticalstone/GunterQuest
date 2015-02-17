@@ -9,7 +9,8 @@ public class Utility {
         DOWN(0,1),
         UP(0,-1),
         LEFT(-1, 0),
-        RIGHT(1, 0);
+        RIGHT(1, 0),
+        NONE(0,0);
 
 
         public int dx, dy;
@@ -17,10 +18,10 @@ public class Utility {
             this.dx = dx;
             this.dy = dy;
         }
-        public int getDy(){
+        public int getDeltaY(){
             return this.dy;
         }
-        public int getDx(){
+        public int getDeltaX(){
             return this.dx;
         }
     }
