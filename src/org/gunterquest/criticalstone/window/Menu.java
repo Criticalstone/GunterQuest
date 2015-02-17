@@ -45,6 +45,7 @@ public class Menu extends Window{
                 break;
             }
         }
+
     }
 
     public void clearMenu(){
@@ -88,12 +89,19 @@ public class Menu extends Window{
             setHeight(items.size() * itemVGap / columns + 10);
             setWidth(columns * getLongestItemName().length()*13 + columns * itemHGap + 10);
             int nextItem = 0;
-            for(int i = 0; i < columns; i++) {
-                for (int j = 0; j < rows; j++) {
-                    if (items.get(nextItem) != null)
-                        items.get(nextItem).paint(x + i * getLongestItemName().length() * 13 + itemHGap * i, y + j * itemVGap, g);
-                    nextItem++;
+
+            /*for(int i = 0; i < columns; i++) {
+                for (int j = 1; j < rows; j++) {
+                    if (items.get(i*j+j) != null) {
+                        items.get(i*j+j).paint(x + i * getLongestItemName().length() * 13 + itemHGap * i, y + j * itemVGap, g);
+                        nextItem++;
+                    }
                 }
+            }*/
+
+            for (int i = 0; i < items.size(); i++) {
+                if (items.get(i) != null)
+                    items.get(i).paint(x, y + itemVGap * i, g);
             }
 
             int pointerPaintX = x + pointerX * getLongestItemName().length() * 10 + itemHGap * pointerX + 10;

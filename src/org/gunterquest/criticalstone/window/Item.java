@@ -16,6 +16,10 @@ public class Item {
         g.drawString(getName(), x + 30, y + 10);
     }
 
+    public void getSize(){
+        
+    }
+
     public String getName(){
         return this.name;
     }
